@@ -16,6 +16,7 @@ st.write(
 # INITIALISATION SESSION
 # ----------------------------
 if "selected_questions" not in st.session_state:
+    # random.sample() garantit pas de doublons : sélectionne 20 questions uniques
     st.session_state.selected_questions = random.sample(questions_list, 20)
     st.session_state.current_index = 0
     st.session_state.score = 0
