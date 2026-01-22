@@ -1632,7 +1632,31 @@ else:
     st.write(f"Score : **{st.session_state.score}/20**")
 
     if st.session_state.score >= 15:
-        st.balloons()
+        st.markdown("""
+<style>
+@keyframes fly {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    50% { transform: translateY(-50vh) rotate(180deg); opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+.flag {
+    position: fixed;
+    bottom: 0;
+    font-size: 4em;
+    animation: fly 8s ease-out;
+    pointer-events: none;
+    z-index: 1000;
+}
+.delay1 { animation-delay: 0s; left: 20%; }
+.delay2 { animation-delay: 1s; left: 40%; }
+.delay3 { animation-delay: 2s; left: 60%; }
+.delay4 { animation-delay: 3s; left: 80%; }
+</style>
+<div class="flag delay1">🇨🇦</div>
+<div class="flag delay2">🇨🇦</div>
+<div class="flag delay3">🇨🇦</div>
+<div class="flag delay4">🇨🇦</div>
+""", unsafe_allow_html=True)
         st.success("🏆 Bravo ! Tu as gagné le jeu !")
     else:
         st.warning("😕 Tu as perdu. Réessaie pour t'améliorer !")
